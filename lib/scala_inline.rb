@@ -1,7 +1,13 @@
+require 'fileutils'
 require 'rubygems'
 require 'inline'
 require 'java'
 include_class Java::java.lang.System
+
+# make sure the inline cache dir exists
+unless File.exists?(Inline.directory)
+  FileUtils.mkdir_p(Inline.directory)
+end
 
 # Add the inline cache dir to CLASSPATH
 $CLASSPATH << Inline.directory
