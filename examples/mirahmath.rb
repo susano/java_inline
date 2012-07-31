@@ -20,7 +20,7 @@ class FastMath
   
   inline :Mirah do |builder|
     builder.mirah "
-      def factorial_mirah(max:int)
+      def factorial_mirah(max:int):int
         i = max
         result = 1
         while i >= 2; result *= i-=1; end
@@ -29,7 +29,7 @@ class FastMath
       "
 
     builder.mirah "
-      def fib_mirah(n:int)
+      def fib_mirah(n:int):int
         if n < 2
           n
         else
