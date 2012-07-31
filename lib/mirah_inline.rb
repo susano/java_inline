@@ -36,7 +36,7 @@ module Inline
 
     # Add a Java method to the built Java source. This expects the method to
     # be public and static, so it can be called as a function.
-    def duby(src)
+    def mirah(src)
       @src << src << "\n"
       signature = src.match(/def ([a-zA-Z0-9_]+)\((.*)\)/)
       raise "Could not parse method signature" unless signature
@@ -55,7 +55,7 @@ module Inline
         end
       "
 
-      File.open(filename, "w") {|file| file.write(full_src)}
+      File.open("#{Inline.directory}/#{filename}", "w") {|file| file.write(full_src)}
       Dir.chdir(Inline.directory) do
         ::Mirah.compile(filename)
       end
